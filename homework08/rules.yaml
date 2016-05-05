@@ -1,0 +1,4 @@
+- pattern: '*.dat'
+  action:  'cat {name}'
+- pattern: '*.txt'
+  action:  'echo {path}'

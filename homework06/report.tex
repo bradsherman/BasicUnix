@@ -1,0 +1,116 @@
+% Report on the demographics in CSE at Notre Dame
+
+
+\documentclass{article}
+
+\title{{\bf Demographics in Computer Science at Notre Dame}}
+\author{{\it Brad Sherman} \\ {\it bsherma1@nd.edu} }
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+
+For this report I first had to make a script to handle the demographic
+data. My script, {\bf demo\_stats.sh} takes the data and counts how many
+male, female, caucasian, oriental, hispanic, african american, native
+american, multiple ethnicities, or undeclared students there are for each 
+graduating class starting with the class of 2013. It then prints these 
+numbers to a file called demog.dat which is used to create Figure 
+\ref{fig:Demographics}, Table \ref{tab:Table1}, and Table \ref{tab:Table2}.
+\\
+My main takeaway from this exercise is that the Notre Dame CSE undergraduate
+pool is mainly caucasian males. I expected it to be mostly caucasian 
+the whole Notre Dame student body is mostly caucasian, but I was a little
+surprised at how many more males there were than females. There are at 
+least twice as many males as females for each year, sometimes even triple
+or double. 
+
+\section*{Methodology}
+
+In order to process the data, I had to make 10 associative arrays in my 
+script. One for the years, two for males/females, and 7 for the different
+ethnicities listed in the file. I used awk with a comma field separator
+with the search pattern "//" which grabs everything, and a series of if
+statements checks to see which letter it is, and increments the corresponding
+associated array. At the end of the script the value of each associated
+array is printed on the same row as its corresponding year into demog.dat.
+\\
+For Figure \ref{fig:Demographics} I used gnuplot with a cluster histogram style to show the
+number of students belonging to each demographic for each year. The most
+frustrating part of this process was trying to get the labels on the x-axis
+to line up with the clusters. I overcame it by doing much research on gnuplot
+and getting help from Professor Bui. 
+
+\section*{Analysis}
+
+Table \ref{tab:Table1} shows a glaring difference in the number of males vs.
+females in the computer science department at Notre Dame.
+\\
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c}
+Year & Male & Female\\
+\hline
+2013&49&14\\
+2014&44&12\\
+2015&58&16\\
+2016&60&19\\
+2017&65&26\\
+2018&90&36\\
+\end{tabular}
+\caption{The number of Male vs. Female in past years in CSE at Notre Dame.}
+\label{tab:Table1}
+\end{table}
+\\
+Table \ref{tab:Table2} shows another disparity, this time between caucasian and all
+other ethnicities in the department.
+\\
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c}
+Year & Caucasian & Oriental & Hispanic & African American & Native American & Multiple & Undeclared\\
+\hline
+2013&43&7&7&3&1&2&0\\
+2014&43&5&4&2&1&1&0\\
+2015&47&9&10&4&1&1&2\\
+2016&53&9&9&1&7&0&0\\
+2017&60&12&3&5&5&6&0\\
+2018&91&8&12&3&4&8&0\\
+\end{tabular}
+\caption{The number of students belonging to different ethnicities.}
+\label{tab:Table2}
+\end{table}
+\\
+Below, in Figure \ref{fig:Demographics}, one can clearly see just how dominated 
+the CSE department at Notre Dame is by caucasian males.
+\\
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{demographics.png}
+\caption{A histogram showing the number of computer science students belonging to different demographics.}
+\label{fig:Demographics}
+\end{figure}
+\\
+\section*{Discussion}
+
+I think the issues of gender and ethnic diversity are very important. I
+believe that all people should have an equal chance to pursue whatever 
+career they want, given that they are qualified. I think the department
+should work to increase diversity, but that they should also look at these 
+numbers with a grain of salt. Notre Dame as a whole is a predominantly 
+caucasian campus, along with slightly more males than females. I think at
+least for ethnic diversity, the department should strive to be at or above
+the percentage of each ethnicity throughout the whole University. However
+for gender diversity, the department should encourage more females to join 
+computer science (as they have been) so the numbers are a little more equal.
+\\
+
+\end{document}
+
+

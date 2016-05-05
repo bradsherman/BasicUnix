@@ -1,0 +1,70 @@
+%Latex Report
+
+\documentclass{article}
+
+\title{Reading 08: Document Tools}
+\date{}
+\author{Brad Sherman}
+
+%use packages here
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+
+For this assignment I made a total of 3 scripts:
+
+\begin{enumerate}
+
+\item{\tt} roll\_dice.sh: A script that simulates rolling a dice.
+\item{\tt} experiment.sh: A script that uses {\bf roll\_dice.sh} to simulate rolling a dice 1000 times,	and store the data into results.dat.
+\item{\tt} histogram.plt: A script that uses gnuplot to make a histogram from results.dat.
+
+\end{enumerate}
+
+\section*{Rolling Dice}
+
+This script simulates rolling a dice by using the shuf command. The user controls how many sides
+the die has and how many times it is rolled.\\
+\$./roll\_dice.sh -h\\
+usage: roll\_dice.sh [-r ROLLS -s SIDES]\\
+-r ROLLS: How many times the die is rolled. (Defaults to 10) \\
+-s SIDES: How many sides the die has.       (Defaults to 6)  \\
+
+\section*{Experiment}
+
+Next, I made a script called {\bf experiment.sh} that simulates rolling a six-sided die 1000 times. The script then
+awk to collect the data and store it into {\bf results.dat}.
+
+\section*{Results}
+
+Here are the results of my scripts being run.
+
+Table 1 shows the results of rolling a die 1000 times. \\
+\begin{table}
+\centering
+\begin{tabular}{c|c}
+Number & Rolls\\
+\hline
+1 & 153\\
+2 & 159\\
+3 & 169\\
+4 & 183\\
+5 & 179\\
+6 & 157\\
+\end{tabular}
+\caption{results.dat}
+\label{tab:table1}
+\end{table}
+
+Figure 1 shows a histogram of my results.
+\begin{figure}
+\includegraphics[width=\linewidth]{results.png}
+\caption{Results of experiment.sh}
+\label{fig:labelresults1}
+\end{figure}
+\end{document}
