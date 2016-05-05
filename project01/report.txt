@@ -1,0 +1,38 @@
+% Report on thor and spidey
+% Project01
+% Brad Sherman and Brent Marin
+
+\documentclass{article}
+
+\title{{\bf Project01: Networking}}
+\author{{\it Brad Sherman and Brent Marin}}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\begin{document}
+
+\maketitle
+
+\section*{Summary}
+In this project, we successfully executed a http client and server in python. We divided the work by having one group member write Thor and the testing shell script and the other partner write Spidey and the report. 
+
+\section*{Latency}
+We went about measuring the latency of the server by running thor and telling it to fork ten times and make ten requests per fork. We did this for requesting a static file, directory listing and a cgi script. We also did this with spidey in forking and non-forking mode. The latency times were best for serving directory listings and slowest for asking for a script result, which is expected because the directory listing is the smallest amount of information to send and a script takes time to execute. Also as expected, the forking version had much lower latency times.
+
+\section*{Throughput}
+We tested the througput of our server by running thor and asking for ten forks with ten reqeusts per fork. We did this for a 1KB file, a 1MB file, and a 1GB file. As expected, the server handled smaller files much better than larger files. The forking version had higher throughput
+
+\section*{Analysis}
+The results of our experiment point to the forking model being generally superior to the single process model. The forking model works very well for lots of incoming reqeusts at once, since there isn't any blocking. It allows for quicker processing of requests when you have an individual process for each request. A disadvantage to the forking model is that for smaller request, it may take more time to fork than it is worth.
+
+\section*{Conclusions}
+From this lab, we learned the basics of writing a server and client, as well as more about http protocol. We also learned about how to use sockets and saw a practical use of forking to speed up a program. 
+
+\section*{GNUplot}
+We didn't complete any gnuplots by the deadline
+
+\end{document}
+
